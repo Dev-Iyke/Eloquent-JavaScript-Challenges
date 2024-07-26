@@ -4,11 +4,56 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Eloquent javascript</title>
+    <style>
+      body{
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+        padding: 2rem 0;
+      }
+      .triangle{
+        background-color: aqua;
+        padding: 1rem;
+      }
+      .fizzbuzz{
+        background-color:rgb(124, 194, 194);
+        padding: 1rem;
+      }
+      .chessboard{
+        background-color: bisque;
+        padding: 1rem;
+      }
+      #triangle, #fizzbuzz, #chessboard>p{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        color: rgb(113, 96, 2);
+      }
+    </style>
   </head>
   <body>
     <h1>Time to practice!</h1>
-    <p>Let's create a chessboard!</p>
+    <div class="triangle">
+      <h2>Triangle Pattern</h2>
+      <p>Let's create a triangle!</p>
+      <button onclick="triangleLoop()">Build</button>
+      <div id="triangle"></div>
+    </div>
+    <div class="fizzbuzz">
+      <h2>FizzBuzz Program</h2>
+      <p>Let's write a FizzBuzz program!</p>
+      <button onclick="fizzBuzz()">Start</button>
+      <div id="fizzbuzz"></div>
+    </div>
+    <div class="chessboard">
+      <h2>Chessboard Pattern</h2>
+      <p>Let's create a chessboard!</p>
+      <input type="number" placeholder="chess size" id="chess-size">
+      <button onclick="createChessboard(chessSize)">Build</button>
+      <div id="chessboard"></div>
+    </div>
 
+    <div id="chess"></div>
     <script src="main.js"></script>
   </body>
 </html>

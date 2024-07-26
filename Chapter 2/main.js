@@ -1,24 +1,46 @@
+const triangleDiv = document.getElementById('triangle');
+const fizzbuzzDiv = document.getElementById('fizzbuzz');
+const chessDiv = document.getElementById('chessboard');
+const chessSize = document.getElementById('chess-size');
+
+
 //TRIANGLE LOOP
-let triangle = "";
-let counter = 0;
-while (counter < 7) {
-  triangle = triangle + "#";
-  console.log(triangle);
-  counter = counter + 1;
+function triangleLoop(){
+    let triangle = "";
+    let counter = 0;
+    while (counter < 7) {
+        triangle = triangle + "#";
+        //console.log(triangle);
+        triangleDiv.innerHTML += triangle + '<br />';
+        
+        counter = counter + 1;
+    }
 }
 
+
 //FIZZBUZZ
-for (let count = 1; count <= 100; count++) {
-  if (count % 3 == 0 && count % 5 == 0) {
-    console.log("FizzBuzz");
-  } else if (count % 3 == 0) {
-    console.log("Fizz");
-  } else if (count % 5 == 0) {
-    console.log("Buzz");
-  } else {
-    console.log(count);
-  }
+function fizzBuzz(){
+    for (let count = 1; count <= 100; count++) {
+        if (count == 100){
+          //console.log(count);
+          fizzbuzzDiv.innerHTML += "Buzz" 
+        }
+        else if (count % 3 == 0 && count % 5 == 0) {
+          //console.log("FizzBuzz");
+          fizzbuzzDiv.innerHTML += "FizzBuzz" + ", ";
+        } else if (count % 3 == 0) {
+          //console.log("Fizz");
+          fizzbuzzDiv.innerHTML += "Fizz" + ", ";
+        } else if (count % 5 == 0) {
+          //console.log("Buzz");
+          fizzbuzzDiv.innerHTML += "Buzz" + ", ";
+        } else {
+          //console.log(count);
+          fizzbuzzDiv.innerHTML += count + ", ";
+        }
+      }
 }
+
 
 //CHESSBOARD
 function chessWidth() {
@@ -49,30 +71,52 @@ function chessBoard() {
   chessWidth();
   chessHeight();
 }
-for (i = 0; i < 4; i++) {
+/* for (i = 0; i < 4; i++) {
     chessBoard();
-}
+} */
 
 
-console.log("\n BETTER WAY \n");
+//console.log("\n BETTER WAY \n");
 
 function createChessboard(size) {
-    let board = '';
-
+  chessDiv.textContent = ""
+  size = chessSize.value
+  if (size == '' || size % 2 !== 0) {
+    chessDiv.innerHTML = 'Enter a valid even chessboard number';
+    //console.log(size)
+  }else{
+    //console.log(size)
+    chessDiv.innerHTML = `Yes! A chess board with ${size} rows and columns`;
     for (let row = 0; row < size; row++) {
+      const eachRow = document.createElement('p')
         for (let col = 0; col < size; col++) {
             // Check if the sum of row and column is even or odd to decide the alternating pattern
             if ((row + col) % 2 === 0) {
-                board += '#';
+              eachRow.innerHTML += '#'
             } else {
-                board += ' ';
+              eachRow.innerHTML += ' &nbsp; '
             }
         }
-        board += '\n';
+        chessDiv.appendChild(eachRow);
     }
+  }
 
-    console.log(board);
+   
 }
 
-// Call the function with the desired size of the chessboard
-createChessboard(8);
+
+const chbd = (num) => {
+  let board = ''
+  for (i = 0; i < num; i++) {
+    for (j = 0; j < num; j++) {     
+      if((i + j) % 2 === 0){      
+        board += '#'
+      }else{
+         board += ' '
+      }
+    }
+    board += '\n'
+  }
+  console.log(board)
+}
+//chbd(8)
