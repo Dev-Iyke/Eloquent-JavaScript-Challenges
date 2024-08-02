@@ -83,3 +83,32 @@ console.log(Math.sin(1.4))
 
 
 //JSON
+
+
+//THE SUM OF RANGES
+const range = (start, end, step) =>{
+    arr = [];
+    if (start < end){
+        for(let i = start; i <= end;){
+            arr.push(i);
+            step ? i+=step: i++;  
+        }
+    }else if (start > end){
+        for(let i = start; i >= end;){
+            arr.push(i);
+            step ? i+=step: i++;  
+        }
+    }  
+    return arr;
+};
+
+const numArr = range(6, 25, 3)
+
+function addArrayItems(arr){
+    let sum = 0;
+    for (let item of arr){
+        sum += item;
+    }
+    return sum;
+}
+console.log(addArrayItems(numArr))
