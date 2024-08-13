@@ -49,6 +49,16 @@ const numArr = range(-8, 1, -1);
 //console.log(numArr)
 
 //This function aims to add up the numbers in an array
+/**
+ * This function calculates the sum of all elements in an array.
+ *
+ * @param {Array} arr - The array of numbers to be summed.
+ * @returns {number} The sum of all elements in the array.
+ *
+ * @example
+ * const numArr = [1, 2, 3, 4, 5];
+ * console.log(addArrayItems(numArr)); // Outputs: 15
+ */
 function addArrayItems(arr) {
   let sum = 0;
   for (let item of arr) {
@@ -56,7 +66,7 @@ function addArrayItems(arr) {
   }
   return sum;
 }
-//console.log(addArrayItems(numArr))
+
 
 // REVERSING AN ARRAY
 //This function returns a new array
